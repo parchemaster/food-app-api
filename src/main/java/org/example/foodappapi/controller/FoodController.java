@@ -1,11 +1,8 @@
 package org.example.foodappapi.controller;
 
 import org.example.foodappapi.dto.FoodDto;
-import org.example.foodappapi.entity.Food;
 import org.example.foodappapi.facade.FoodFacade;
-import org.example.foodappapi.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
