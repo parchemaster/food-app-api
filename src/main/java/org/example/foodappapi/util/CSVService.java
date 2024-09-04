@@ -2,12 +2,11 @@ package org.example.foodappapi.util;
 
 
 import jakarta.annotation.PostConstruct;
-import org.example.foodappapi.entity.Food;
+import org.example.foodappapi.entity.Clothes;
 import org.example.foodappapi.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -23,21 +22,25 @@ public class CSVService {
 
     @PostConstruct
     public void init() {
-        saveUsersFromCSV("nutrients_csvfile.csv");
+        saveUsersFromCSV("shoping.csv");
     }
 
     public void saveUsersFromCSV(String fileName) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new ClassPathResource(fileName).getInputStream(), StandardCharsets.UTF_8))) {
-            List<Food> foodList = new ArrayList<>();
+            List<Clothes> clothesList = new ArrayList<>();
             String line = reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                Food food = new Food();
-                food.setFood(data[0]);
-                food.setMeasure(data[1]);
-                foodList.add(food);
+                Clothes clothes = new Clothes();
+                clothes.setProductName(data[0]);
+                clothes.setManufacturer(data[2]);
+                clothes.setPrice(data[3]);
+                clothes.setAverageReviewRating(Integer.parseInt(data[7]));
+                clothes.setDescription(data[10]);
+                clothes.setProductDescription(data[12]);
+                clothesList.add(clothes);
             }
-            foodRepository.saveAll(foodList);
+            foodRepository.saveAll(clothesList);
         } catch (Exception e) {
             e.printStackTrace();
         }
