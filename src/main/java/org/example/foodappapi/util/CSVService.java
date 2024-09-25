@@ -3,7 +3,7 @@ package org.example.foodappapi.util;
 
 import jakarta.annotation.PostConstruct;
 import org.example.foodappapi.entity.Clothes;
-import org.example.foodappapi.repository.FoodRepository;
+import org.example.foodappapi.repository.ClothesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ import java.util.List;
 public class CSVService {
 
     @Autowired
-    private FoodRepository foodRepository;
+    private ClothesRepository clothesRepository;
 
     @PostConstruct
     public void init() {
@@ -32,15 +32,19 @@ public class CSVService {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
                 Clothes clothes = new Clothes();
-                clothes.setProductName(data[0]);
-                clothes.setManufacturer(data[2]);
-                clothes.setPrice(data[3]);
-                clothes.setAverageReviewRating(Integer.parseInt(data[7]));
-                clothes.setDescription(data[10]);
-                clothes.setProductDescription(data[12]);
+                clothes.setId(Long.parseLong(data[0]));
+                clothes.setGender(data[1]);
+                clothes.setMasterCategory(data[2]);
+                clothes.setSubCategory(data[3]);
+                clothes.setArticleType(data[4]);
+                clothes.setBaseColour(data[5]);
+                clothes.setSeason(data[6]);
+                clothes.setYear(Integer.parseInt(data[7]));
+                clothes.setUsage(data[8]);
+                clothes.setProductDisplayName(data[9]);
                 clothesList.add(clothes);
             }
-            foodRepository.saveAll(clothesList);
+            clothesRepository.saveAll(clothesList);
         } catch (Exception e) {
             e.printStackTrace();
         }

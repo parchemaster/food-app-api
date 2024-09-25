@@ -5,22 +5,30 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Clothes")
+@Table(name = "CLOTHES")
 public class Clothes {
     @Id
-    @Column(name = "uniq_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long uniqId;
-    @Column(name = "product_name")
-    private String productName;
-    @Column(name = "manufacturer")
-    private String manufacturer;
-    @Column(name = "price")
-    private String price;
-    @Column(name = "average_review_rating")
-    private int averageReviewRating;
-    @Column(name = "description")
-    private String description;
-    @Column(name = "product_description")
-    private String productDescription;
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "gender")
+    private String gender;
+    @Column(name = "masterCategory")
+    private String masterCategory;
+    @Column(name = "subCategory")
+    private String subCategory;
+    @Column(name = "articleType")
+    private String articleType;
+    @Column(name = "baseColour")
+    private String baseColour;
+    @Column(name = "season")
+    private String season;
+    @Column(name = "year_value")
+    private int year;
+    @Column(name = "usage")
+    private String usage;
+    @Column(name = "productDisplayName")
+    private String productDisplayName;
+
+
 }
