@@ -13,21 +13,21 @@ public class Clothes {
     private Long id;
     @Column(name = "gender")
     private String gender;
-    @Column(name = "masterCategory")
+    @Column(name = "master_category")
     private String masterCategory;
-    @Column(name = "subCategory")
+    @Column(name = "sub_category")
     private String subCategory;
-    @Column(name = "articleType")
+    @Column(name = "article_type")
     private String articleType;
-    @Column(name = "baseColour")
+    @Column(name = "base_colour")
     private String baseColour;
     @Column(name = "season")
     private String season;
-    @Column(name = "year_value")
+    @Column(name = "year")
     private int year;
     @Column(name = "usage")
     private String usage;
-    @Column(name = "productDisplayName")
+    @Column(name = "product_displayName")
     private String productDisplayName;
 
 
